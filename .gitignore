@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.venv
+venv/
+.ipynb_checkpoints/
+
+# Project artifacts and data
+artifacts/
+data/
+*.pt
+*.faiss
+*.zip
+
+# FastAPI/uvicorn logs (if any)
+*.log

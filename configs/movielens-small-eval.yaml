@@ -1,0 +1,24 @@
+# Training + evaluation config (CPU-friendly)
+data:
+  root_dir: data
+  rating_threshold: 0      # treat ratings >= threshold as positive (0 uses all)
+split:
+  holdout_per_user: 1      # number of most-recent interactions per user for validation
+  min_interactions: 2      # users must have at least this many interactions to be included
+training:
+  seed: 42
+  device: cpu
+  batch_size: 1024
+  epochs: 5
+  lr: 0.002
+  embedding_dim: 64
+eval:
+  k: 10
+  exclude_train_items: true
+artifacts:
+  dir: artifacts/movielens_small_twotower_eval
+  faiss_index: index.faiss
+  model_file: model.pt
+  user_map: user_id_map.json
+  item_map: item_id_map.json
+  metrics_file: metrics.json

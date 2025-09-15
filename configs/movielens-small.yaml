@@ -1,0 +1,19 @@
+# Training config (CPU-friendly)
+data:
+  root_dir: data
+  dataset: ml-latest-small  # will be downloaded if missing
+  rating_threshold: 0       # treat all ratings >= threshold as positive (0 uses all)
+training:
+  seed: 42
+  device: cpu
+  batch_size: 1024
+  epochs: 5
+  lr: 0.002
+  embedding_dim: 64
+artifacts:
+  dir: artifacts/movielens_small_twotower
+  faiss_index: index.faiss
+  model_file: model.pt
+  user_map: user_id_map.json
+  item_map: item_id_map.json
+  movies_meta: movies.csv
