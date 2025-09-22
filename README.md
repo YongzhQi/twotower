@@ -1,6 +1,22 @@
 # Two-Tower Recommender (MovieLens Small)
 
-End-to-end demo: train a two-tower model, build a FAISS index, and serve recommendations via FastAPI.
+End-to-end implementation of a two-tower recommendation system using the MovieLens dataset. This project demonstrates core concepts in modern recommendation systems: embedding-based collaborative filtering, in-batch negative sampling, temporal evaluation, and efficient retrieval using approximate nearest neighbor search.
+
+## Features
+- **Two-tower architecture**: Separate user and item embedding towers for scalable retrieval
+- **In-batch negative sampling**: Efficient training without explicit negative generation
+- **Temporal evaluation**: Time-based train/validation splits with proper seen-item filtering
+- **FAISS integration**: Fast similarity search for real-time recommendations
+- **REST API serving**: FastAPI-based recommendation service
+
+## Tech Stack
+PyTorch • FAISS • FastAPI • Pandas • NumPy
+
+## Performance
+Evaluated on 610 users with temporal splits:
+- Recall@10: 4.26%
+- NDCG@10: 1.96%
+- HitRate@10: 4.26%
 
 ## Train
 ```bash
