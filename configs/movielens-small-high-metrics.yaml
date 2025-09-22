@@ -1,0 +1,24 @@
+# Config optimized for higher evaluation metrics
+data:
+  root_dir: data
+  rating_threshold: 4.0    # Only 4-5 star ratings as positive (much easier targets)
+split:
+  holdout_per_user: 8      # Hold out 8 items per user (more targets to hit)
+  min_interactions: 12     # Users must have at least 12 interactions (denser users only)
+training:
+  seed: 42
+  device: cpu
+  batch_size: 1024
+  epochs: 15               # More training
+  lr: 0.001               # Lower learning rate for better convergence
+  embedding_dim: 128      # Larger embeddings for better representation
+eval:
+  k: 10
+  exclude_train_items: true
+artifacts:
+  dir: artifacts/movielens_small_twotower_high_metrics
+  faiss_index: index.faiss
+  model_file: model.pt
+  user_map: user_id_map.json
+  item_map: item_id_map.json
+  metrics_file: metrics.json

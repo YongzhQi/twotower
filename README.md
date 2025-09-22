@@ -13,14 +13,18 @@ End-to-end implementation of a two-tower recommendation system using the MovieLe
 PyTorch • FAISS • FastAPI • Pandas • NumPy
 
 ## Performance
-Evaluated on 610 users with temporal splits:
-- Recall@10: 4.26%
-- NDCG@10: 1.96%
-- HitRate@10: 4.26%
+Evaluated on 438 active users with temporal splits:
+- **Hit Rate@10: 28.3%** (users receiving relevant recommendations)
+- Recall@10: 2.8%
+- NDCG@10: 4.5%
 
 ## Train
 ```bash
+# Basic training
 python -m src.train --config configs/movielens-small.yaml
+
+# Training with evaluation for best metrics
+python -m src.train_eval --config configs/movielens-small-max-recall.yaml
 ```
 
 ## Serve
